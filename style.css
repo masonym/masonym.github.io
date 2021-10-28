@@ -1,0 +1,41 @@
+html {
+    scroll-behavior: smooth;
+    height: 100%;
+}
+
+body {
+    display: flex;
+    align-content: center;
+    background: rgb(236,219,143);
+    background: linear-gradient(180deg, rgba(236,219,143,1) 0%, rgba(249,155,39,1) 100%);
+    background-repeat: no-repeat;
+    background-attachment: fixed;
+}
+
+p {
+    font-family: Nunito, sans-serif;
+}
+
+.header_container {
+    font-size: 72pt;
+    font-weight: bolder;
+    width: 80vw;
+    top: 5rem;
+    position: relative;
+    overflow-wrap: break-word;
+
+}
+
+.name {
+    color: #4eaaff;
+}
+
+.text {
+    font-size: 36pt;
+    font-weight: lighter;
+    color: #69706ba0;
+}
+
+.spacing {
+    line-height: 0pt;
+}
