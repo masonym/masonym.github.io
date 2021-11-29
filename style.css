@@ -1,13 +1,3 @@
-/*
-
-* {
-    border: 2px solid red;
-}
-
-*/
-
-
-
 html {
     scroll-behavior: smooth;
     min-height: 100%;
@@ -51,11 +41,11 @@ h2 em {
 .header_container {
     display: flex;
     margin: 0;
-    height: 4rem;
+    height: 4em;
     align-items: center;
     margin-right: 5vw;
     margin-top: 2vw;
-    font-size: 1.5rem;
+    font-size: 1.5em;
 }
 
 .home_container {
@@ -63,33 +53,39 @@ h2 em {
     flex-direction: row;
     position: relative;
     flex-grow: 1;
+    justify-content: space-between;
 
 }
 
 .home_intro_wrapper {
 
-    font-size: 2.75rem;
+    font-size: 1.5em;
     font-weight: bolder;
-    width: 30vw;
-    line-height: 4rem;
-    margin: 5vw 10vw;
+    width: 50em;
+    line-height: 1em;
+    margin: 6em 0em 6em 8em;
     position: relative;
 
 }
 
+.home_intro_wrapper h2 {
+    font-size: 4em;
+    line-height: 1em;
+}
+
 .home_intro_wrapper p {
-    font-size: 2rem;
+    font-size: 2em;
     font-weight: lighter;
     color: #69706ba0;
-    line-height: 2.25rem;
+    line-height: 1em;
 }
 .home_container .image_container {
     display: block;
 }
 
 .home_container .image_container img {
-    width: 12vw;
-    margin: 5vw 10vw;
+    width: 20em;
+    margin: 6em 12em 6em 12em;
     position: relative;
     border-bottom: 5px solid turquoise;
     border-right: 5px solid turquoise
@@ -97,24 +93,24 @@ h2 em {
 
 .project_container {
     flex-direction: row;
-    margin: 5vw 10vw;
+    margin: 6em 12em;
 }
 
 .project_container img {
-    width: 30rem;
-    height: 30rem;
+    width: 30em;
+    height: 30em;
     
 }
 
 .project_container h2 {
-    font-size: 3rem;
+    font-size: 3em;
     margin-bottom: 1vw;
 }
 
 .contact {
-    font-size: 1rem;
+    font-size: 1em;
     font-weight: bolder;
-    margin: 2vw 10vw;
+    margin: 3em 12em;
     position: relative;
     color: #69706ba0;
 }
@@ -128,8 +124,8 @@ h2 em {
     display: flex;
     position: relative;
     margin-bottom: 0;
-    width: 100vw;
-    height: 5rem;
+    min-width: 100%;
+    height: 5em;
 }
 
 .left, .right {
