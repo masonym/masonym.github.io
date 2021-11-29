@@ -96,6 +96,17 @@ h2 em {
     border-right: 5px solid turquoise
 }
 
+.project_container {
+    flex-direction: row;
+    margin: 5vw 10vw;
+}
+
+.project_container img {
+    width: 30rem;
+    height: 30rem;
+    
+}
+
 .contact {
     font-size: 1vw;
     font-weight: bolder;
