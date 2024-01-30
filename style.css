@@ -20,7 +20,7 @@ body {
     
     display: flex;
     flex-direction: column;
-    justify-content: space-between;
+    /* justify-content: space-between; */
 
     min-height: 100vh;
     
@@ -62,8 +62,7 @@ h2 em {
 .home_intro_wrapper {
 
     font-weight: bolder;
-    width: 50vw;
-    line-height: 1em;
+    /* width: 50vw; */
     margin: 2vw 2vw 2vw 6vw;
     position: relative;
 
@@ -72,6 +71,7 @@ h2 em {
 .home_intro_wrapper h2 {
     font-size: 3vw;
     line-height: 1em;
+    margin-bottom: 1vw;
 }
 
 .home_intro_wrapper p {
@@ -79,6 +79,7 @@ h2 em {
     font-weight: lighter;
     color: #69706ba0;
     line-height: 1em;
+    margin-right: 6vw;
 }
 .home_container .image_container {
     display: block;
@@ -108,6 +109,7 @@ h2 em {
 }
 
 .title {
+    margin-top: 4vw;
     margin-left: 6vw;
     font-size: 2vw;
     margin-bottom: 0.5vw;
@@ -119,6 +121,7 @@ h2 em {
     box-sizing: border-box;
     max-width: 20vw;
     font-size: 1vw;
+    margin-bottom: 4vw;
     
 }
 
@@ -137,10 +140,11 @@ h2 em {
 .footer_container {
     background: linear-gradient(0deg, rgba(184,184,184,1) 0%, rgba(166,166,166,1) 100%);
     display: flex;
-    position: relative;
+    position: absolute;
     margin-bottom: 0;
+    bottom: 0;
     min-width: 100%;
-    height: 5em;
+    height: 2.5rem;
 }
 
 .left, .right {
