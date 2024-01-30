@@ -118,6 +118,7 @@ h2 em {
     word-wrap: break-word;
     box-sizing: border-box;
     max-width: 20vw;
+    font-size: 1vw;
     
 }
 
