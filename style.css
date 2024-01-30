@@ -140,7 +140,7 @@ h2 em {
 .footer_container {
     background: linear-gradient(0deg, rgba(184,184,184,1) 0%, rgba(166,166,166,1) 100%);
     display: flex;
-    position: absolute;
+    position: relative;
     margin-bottom: 0;
     bottom: 0;
     min-width: 100%;
