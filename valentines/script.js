@@ -8,7 +8,7 @@ function showMessage(response) {
     const maxHeight = window.innerHeight - noButton.offsetHeight;
 
     cnt++;
-    document.getElementsByClassName("image")[0].src = "images/elgatogun.jpg";
+    document.getElementsByClassName("image")[0].src = "./valentines/images/elgatogun.jpg";
 
     document.getElementById("question").textContent =
       "excuse me? try again";
@@ -17,7 +17,7 @@ function showMessage(response) {
     if (cnt > 5) {
       document.getElementById("question").textContent =
         "PLEASE PLEASE PLEASE PLEASE PLEASE PLEASE PLEASE PLEASE PLEASE PLEASE PLEASE PLEASE PLEASE PLEASE PLEASE PLEASE PLEASE PLEASE PLEASE PLEASE PLEASE PLEASE PLEASE PLEASE PLEASE PLEASE PLEASE PLEASE PLEASE PLEASE PLEASE PLEASE PLEASE PLEASE PLEASE PLEASE PLEASE PLEASE PLEASE PLEASE PLEASE PLEASE PLEASE PLEASE PLEASE PLEASE PLEASE PLEASE"
-      document.getElementsByClassName("image")[0].src = "images/sadge.jpg";
+      document.getElementsByClassName("image")[0].src = "./valentines/images/sadge.jpg";
     }
     noButton.style.position = "absolute";
 
@@ -39,7 +39,7 @@ function showMessage(response) {
     yesMessage.textContent = "mweh heh heh heh........ \n see you on the 14th 😎";
     yesMessage.style.display = "block";
     yesMessage.style.fontStyle = "normal";
-    document.getElementsByClassName("image")[0].src = "images/teehee.jpg";
+    document.getElementsByClassName("image")[0].src = "./valentines/images/teehee.jpg";
 
     document.getElementById("yesButton").remove();
   }
