@@ -14,7 +14,7 @@ function showMessage(response) {
       "excuse me? try again";
     document.getElementById("name").style.display = "none";
 
-    if (cnt > 3) {
+    if (cnt > 5) {
       document.getElementById("question").textContent =
         "PLEASE PLEASE PLEASE PLEASE PLEASE PLEASE PLEASE PLEASE PLEASE PLEASE PLEASE PLEASE PLEASE PLEASE PLEASE PLEASE PLEASE PLEASE PLEASE PLEASE PLEASE PLEASE PLEASE PLEASE PLEASE PLEASE PLEASE PLEASE PLEASE PLEASE PLEASE PLEASE PLEASE PLEASE PLEASE PLEASE PLEASE PLEASE PLEASE PLEASE PLEASE PLEASE PLEASE PLEASE PLEASE PLEASE PLEASE PLEASE"
       document.getElementsByClassName("image")[0].src = "images/sadge.jpg";
