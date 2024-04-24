@@ -105,6 +105,7 @@ h2 em {
 .project_container img {
     height: 20vw;
     width: 20vw;
+    object-fit: contain;
     
 }
 
