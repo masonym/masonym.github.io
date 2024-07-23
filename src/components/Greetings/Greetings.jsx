@@ -35,67 +35,33 @@ const greetings = {
 const Greetings = () => {
     const [visibleGreetings, setVisibleGreetings] = useState([]);
     const [positions, setPositions] = useState({});
-    const containerRef = useRef(null);
-
-    const checkOverlap = (newPos, newSize, existingPositions) => {
-        for (const pos of Object.values(existingPositions)) {
-            if (
-                newPos.left < pos.left + pos.width &&
-                newPos.left + newSize.width > pos.left &&
-                newPos.top < pos.top + pos.height &&
-                newPos.top + newSize.height > pos.top
-            ) {
-                return true; // Overlap detected
-            }
-        }
-        return false; // No overlap
-    };
-
-    const getRandomPosition = (containerSize, greetingSize, existingPositions) => {
-        let newPos;
-        do {
-            newPos = {
-                left: Math.random() * (containerSize.width - greetingSize.width),
-                top: Math.random() * (containerSize.height - greetingSize.height),
-                width: greetingSize.width,
-                height: greetingSize.height
-            };
-        } while (checkOverlap(newPos, greetingSize, existingPositions));
-        return newPos;
-    };
 
     useEffect(() => {
         const greetingsList = Object.entries(greetings).filter(([lang]) => lang !== 'English');
         let index = 0;
 
-        const addGreeting = () => {
-            if (index < greetingsList.length && containerRef.current) {
+        const interval = setInterval(() => {
+            if (index < greetingsList.length) {
                 const [lang, greeting] = greetingsList[index];
-                const containerRect = containerRef.current.getBoundingClientRect();
-                const greetingSize = { width: 150, height: 50 };
-
-                const newPos = getRandomPosition(
-                    { width: containerRect.width, height: containerRect.height },
-                    greetingSize,
-                    positions
-                );
-
                 setVisibleGreetings(prev => [...prev, { lang, greeting }]);
                 setPositions(prev => ({
                     ...prev,
-                    [lang]: { left: newPos.left, top: newPos.top }
+                    [lang]: {
+                        left: `${Math.random() * 80 + 10}%`,
+                        top: `${Math.random() * 80 + 10}%`,
+                    }
                 }));
-
                 index++;
-                setTimeout(addGreeting, 2000);
+            } else {
+                clearInterval(interval);
             }
-        };
+        }, 1000); // Add a new greeting every second
 
-        addGreeting();
+        return () => clearInterval(interval);
     }, []);
 
     return (
-        <div ref={containerRef} style={{ position: 'relative', width: '100vw', height: '100vh', overflow: 'hidden' }}>
+        <div style={{ position: 'relative', width: '100vw', height: '100vh', overflow: 'hidden' }}>
             <div style={{
                 position: 'absolute',
                 left: '50%',
