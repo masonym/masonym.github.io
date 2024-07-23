@@ -1,19 +1,48 @@
+/* Card.module.css */
+
 .card {
     border: 1px solid hsl(0, 0%, 33%);
     border-radius: 16px;
-    max-width: 500px;
-    padding: 5%;
-    box-shadow: 5px 5px 5xp rgba(15, 107, 150, 0.438);
-    display: inline-block
+    padding: 2.5% 32px;
+    box-shadow: 2px 5px 5px hsla(0, 0%, 100%, 0.1);
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    flex: 1;
+    margin: 10px;
+    background-color: #222;
+    color: #fff;
 }
 
 .image {
     max-width: 100%;
-    height: auto;
+    max-height: 100%;
     border-radius: 16px;
-    box-shadow: 5px 5px 5xp hsla(0, 0%, 100%, 1);
+}
+
+.imageContainer {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 100%;
+    height: 250px;
+    overflow: hidden;
+    margin-bottom: 15px;
 }
 
 .link {
     text-decoration: underline;
+}
+
+.projectTitle {
+    text-shadow: 0px 3px 10px black;
+}
+
+.gitHubLogo {
+    width: 32px;
+    height: auto;
+}
+
+.gitHubSection {
+    height: 32px;
 }

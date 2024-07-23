@@ -1,5 +1,5 @@
-#root {
-  max-width: 1280px;
+:root {
+  max-width: calc(1280px * 1.25);
   margin: 0 auto;
   padding: 2rem;
   text-align: center;
@@ -33,10 +33,27 @@
   }
 }
 
-.card {
-  padding: 2em;
-}
-
 .read-the-docs {
   color: #888;
+}
+
+.cardContainer {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 20px;
+  justify-content: space-around;
+  padding: 20px;
+}
+
+.cardContainerWrapper {
+  display: flex;
+  flex-wrap: wrap;
+  width: 100%;
+  gap: 20px;
+  justify-content: center;
+}
+
+ul {
+  list-style: none;
+  padding-left: 0;
 }
