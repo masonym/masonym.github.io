@@ -1,0 +1,19 @@
+.card {
+    border: 1px solid hsl(0, 0%, 33%);
+    border-radius: 16px;
+    max-width: 500px;
+    padding: 5%;
+    box-shadow: 5px 5px 5xp rgba(15, 107, 150, 0.438);
+    display: inline-block
+}
+
+.image {
+    max-width: 100%;
+    height: auto;
+    border-radius: 16px;
+    box-shadow: 5px 5px 5xp hsla(0, 0%, 100%, 1);
+}
+
+.link {
+    text-decoration: underline;
+}
