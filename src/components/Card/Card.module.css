@@ -46,3 +46,8 @@
 .gitHubSection {
     height: 32px;
 }
+
+@media (prefers-color-scheme: light) {
+    /* fill this */
+  }
+  
