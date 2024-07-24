@@ -1,8 +1,12 @@
 import { useState } from 'react';
 import Header from './Header.jsx';
+import Greetings from './components/Greetings/Greetings.jsx';
 import Intro from './components/Intro/Intro.jsx'
-import Footer from './Footer.jsx';
+import ProjectHeader from './components/ProjectHeader/ProjectHeader.jsx';
 import Card from './components/Card/Card.jsx';
+import Footer from './components/Footer/Footer.jsx';
+
+
 import styles from './App.module.css';
 
 import projectImageCS from './assets/upcoming-sales.png';
@@ -16,7 +20,10 @@ function App() {
   return (
     <>
       {/* <Header /> */}
+
+      <Greetings />
       <Intro />
+      <ProjectHeader />
       <div className={styles.cardContainerWrapper}>
         <div className={styles.cardContainer}>
           <Card

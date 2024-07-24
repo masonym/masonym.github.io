@@ -55,13 +55,13 @@ const Greetings = () => {
             } else {
                 clearInterval(interval);
             }
-        }, 1000); // Add a new greeting every second
+        }, 500); // Add a new greeting every second
 
         return () => clearInterval(interval);
     }, []);
 
     return (
-        <div style={{ position: 'relative', width: '100vw', height: '100vh', overflow: 'hidden' }}>
+        <div style={{width: '100%', height: '100vh', overflow: 'hidden' }}>
             <div style={{
                 position: 'absolute',
                 left: '50%',

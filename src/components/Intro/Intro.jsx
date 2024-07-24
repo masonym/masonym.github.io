@@ -6,7 +6,7 @@ function Intro() {
 
     return (
         <>
-            <Greetings />
+            <h1>Intro Start</h1>
         </>
     );
 }
