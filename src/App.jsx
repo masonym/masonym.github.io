@@ -1,5 +1,7 @@
 import { useState } from 'react';
-import Header from './Header.jsx';
+// import { BrowserRouter } from 'react-router-dom'
+
+import Header from './components/Header/Header.jsx';
 import Greetings from './components/Greetings/Greetings.jsx';
 import Intro from './components/Intro/Intro.jsx'
 import ProjectHeader from './components/ProjectHeader/ProjectHeader.jsx';
@@ -23,7 +25,10 @@ function App() {
 
       <Greetings />
       <Intro />
-      <ProjectHeader />
+      <div id="projects">
+
+        <ProjectHeader />
+      </div>
       <div className={styles.cardContainerWrapper}>
         <div className={styles.cardContainer}>
           <Card
