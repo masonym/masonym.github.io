@@ -1,5 +1,5 @@
 import React, { useState, useEffect, useRef } from 'react';
-import styles from './Greetings.module.css'
+import styles from './Greetings.module.css';
 
 const greetings = {
     French: "Bonjour",
@@ -29,39 +29,43 @@ const greetings = {
     Romanian: "Salut",
     Indonesian: "Halo",
     Tagalog: "Kamusta",
-
 };
 
 const Greetings = () => {
     const [visibleGreetings, setVisibleGreetings] = useState([]);
     const [positions, setPositions] = useState({});
+    const containerRef = useRef(null);
 
     useEffect(() => {
+        const container = containerRef.current;
         const greetingsList = Object.entries(greetings).filter(([lang]) => lang !== 'English');
         let index = 0;
 
         const interval = setInterval(() => {
             if (index < greetingsList.length) {
                 const [lang, greeting] = greetingsList[index];
+                const containerWidth = container.offsetWidth;
+                const containerHeight = container.offsetHeight;
+
                 setVisibleGreetings(prev => [...prev, { lang, greeting }]);
                 setPositions(prev => ({
                     ...prev,
                     [lang]: {
-                        left: `${Math.random() * 80 + 10}%`,
-                        top: `${Math.random() * 80 + 10}%`,
+                        left: `${Math.random() * (containerWidth - 50)}px`,
+                        top: `${Math.random() * (containerHeight - 50)}px`,
                     }
                 }));
                 index++;
             } else {
                 clearInterval(interval);
             }
-        }, 500); // Add a new greeting every second
+        }, 500);
 
         return () => clearInterval(interval);
     }, []);
 
     return (
-        <div style={{width: '100%', height: '100vh', overflow: 'hidden' }}>
+        <div ref={containerRef} style={{ width: '100%', height: '100vh', overflow: 'hidden', position: 'relative' }}>
             <div style={{
                 position: 'absolute',
                 left: '50%',
@@ -89,13 +93,13 @@ const Greetings = () => {
                 </div>
             ))}
             <style>{`
-          @keyframes fadeIn {
-            from { opacity: 0; }
-            to { opacity: 1; }
-          }
-        `}</style>
+                @keyframes fadeIn {
+                    from { opacity: 0; }
+                    to { opacity: 1; }
+                }
+            `}</style>
         </div>
     );
 };
 
-export default Greetings;  
+export default Greetings;

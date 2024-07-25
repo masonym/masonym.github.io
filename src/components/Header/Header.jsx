@@ -1,27 +1,32 @@
 import styles from './Header.module.css'
 
-function Header() {
+function Header({ projectsRef }) {
+    const scrollToRef = (ref) => {
+        ref.current.scrollIntoView({ behavior: 'smooth' });
+    };
 
-    return(
+    return (
         <header className={styles.header}>
             <nav className={styles.nav}>
-                <div>
-                    <h1 className={styles.h1}>Mason Leitch</h1>
+                <div className={styles.headerTitles}>
                     <ul>
-                        <li><a href="#projects">Projects</a></li>
+                        <h1 className={styles.h1}>Mason Leitch</h1>
+                        <h3>Software Developer</h3>
+                    </ul>
+                    <ul>
+                        <li style={{fontSize: '1.25em', borderLeft: '1px solid white ', paddingLeft: "10px"}}><a href="#" onClick={(e) => { e.preventDefault(); scrollToRef(projectsRef); }}>Projects</a></li>
                     </ul>
                 </div>
                 <ul className={styles.navItems}>
-                    <li><a href="">resume</a></li>
-                    <li><a href="https://www.linkedin.com/in/mason-leitch-78b90a206/" target='_blank'>linkedin</a></li>
-                    <li><a href="https://github.com/masonym" target='_blank'>github</a></li>
-                    <li><a href="mailto:nosamleitch@gmail.com" target='_blank'>contact</a></li>
+                    <li><a href="">Resume</a></li>
+                    <li><a href="https://www.linkedin.com/in/mason-leitch-78b90a206/" target='_blank'>LinkedIn</a></li>
+                    <li><a href="https://github.com/masonym" target='_blank'>GitHub</a></li>
+                    <li><a href="mailto:nosamleitch@gmail.com" target='_blank'>Contact</a></li>
                 </ul>
             </nav>
             <hr></hr>
         </header>
     );
-
 }
 
-export default Header
+export default Header;
