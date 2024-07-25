@@ -24,7 +24,7 @@ function Header({ projectsRef }) {
                     <li><a href="mailto:nosamleitch@gmail.com" target='_blank'>Contact</a></li>
                 </ul>
             </nav>
-            <hr></hr>
+            <hr style={{marginTop: 0, marginBottom: "50px"}}></hr>
         </header>
     );
 }

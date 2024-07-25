@@ -6,6 +6,7 @@ function Intro() {
 
     return (
         <div className={styles.introWrapper}>
+            <hr style={{color: 'white', width: '100%'}}/>
             <h1 style={{ textAlign: "left", margin: 0 }}>Nice to meet you! 👋 <br></br>I'm <span style={{ color: "#2063d6" }}>Mason</span>.</h1>
             <div className={styles.introParagraph}>
                 <p>
