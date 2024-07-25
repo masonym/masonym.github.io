@@ -9,8 +9,8 @@
     display: flex;
     flex-direction: column;
     align-items: flex-start;
-    padding-left: 15vw;
-    padding-right: 15vw;
+    padding-left: 5%;
+    padding-right: 5%;
 }
 
 .introParagraph {
@@ -19,3 +19,16 @@
     font-weight: lighter;
 }
 
+.greetingAndPortrait {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: space-between;
+    width: 100%;
+}
+
+.portrait {
+    width: 16em;
+    border-radius: 50%;
+    margin-top: 1em;
+}
