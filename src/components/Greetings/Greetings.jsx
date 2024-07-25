@@ -51,8 +51,8 @@ const Greetings = () => {
                 setPositions(prev => ({
                     ...prev,
                     [lang]: {
-                        left: `${Math.random() * (containerWidth - 50)}px`,
-                        top: `${Math.random() * (containerHeight - 50)}px`,
+                        left: `${Math.random() * (containerWidth - 200)}px`,
+                        top: `${Math.random() * (containerHeight - 100)}px`,                        
                     }
                 }));
                 index++;
@@ -65,7 +65,7 @@ const Greetings = () => {
     }, []);
 
     return (
-        <div ref={containerRef} style={{ width: '100%', height: '100vh', overflow: 'hidden', position: 'relative' }}>
+        <div ref={containerRef} style={{ width: '100%', height: '100vh', overflow: 'visible', position: 'relative', top: "20%" }}>
             <div style={{
                 position: 'absolute',
                 left: '50%',
