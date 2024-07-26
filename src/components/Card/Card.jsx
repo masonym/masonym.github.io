@@ -1,6 +1,6 @@
 import React, { useState, useEffect, useRef } from 'react';
 import styles from './Card.module.css';
-import gitHubLogo from '../../assets/github-mark-white.png';
+import { SiGithub } from 'react-icons/si';
 import { ExternalLink } from 'lucide-react';
 
 function Card(props) {
@@ -55,7 +55,7 @@ function Card(props) {
       <p>{props.description}</p>
       <span className={styles.gitHubSection}>
         <a href={props.gitHubLink} target="_blank" rel="noopener noreferrer" className={styles.link}>
-          {props.gitHubLink && <img src={gitHubLogo} className={styles.gitHubLogo} alt="GitHub" />}
+          {props.gitHubLink && <SiGithub className={styles.gitHubLogo} />}
         </a>
       </span>
     </div>

@@ -3,7 +3,16 @@
   margin: 0 auto;
   padding: 2rem;
   text-align: center;
+  background: var(--gradient-background);
+  background: var(--gradient-color);
 }
+
+.app {
+  background: var(--gradient-background);
+  background: var(--gradient-color);
+  color: var(--primary-text-color);
+}
+
 
 .logo {
   height: 6em;

@@ -1,3 +1,7 @@
+:root {
+    color: var(--primary-text-color)
+}
+
 .navItems {
     display: flex;
     flex-direction: row;

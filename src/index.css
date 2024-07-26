@@ -1,22 +1,49 @@
-:root {
+body {
+  margin: 0;
+  display: flex;
+  place-items: center;
+  min-width: 320px;
+  min-height: 100vh;
   font-family: Inter, system-ui, Avenir, Helvetica, Arial, sans-serif;
   line-height: 1.5;
   font-weight: 400;
-
-  color-scheme: light dark;
-  color: rgba(255, 255, 255, 0.87);
-  background: rgb(36,36,36);
-  background: linear-gradient(0deg, rgba(36,36,36,1) 0%, rgba(66,66,66,1) 100%);
-
-
-
   font-synthesis: none;
   text-rendering: optimizeLegibility;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
-
 }
 
+body[data-theme="light"] {
+  --background-color: #f6f6f6;
+  --gradient-background: rgb(195,195,195);
+  --gradient-color: linear-gradient(0deg, rgba(195,195,195,1) 0%, rgba(233,233,233,1) 100%);
+  --foreground-color: #bdbdbd;
+  --primary-text-color: #213547;
+  --secondary-text-color: hsla(0, 0%, 29%, 0.5);
+  --tertiary-text-color: hsla(0, 0%, 29%, 0.8);
+  --toggle-bg: #f0eb9d;
+  --toggle-fg: #ff00dd;
+}
+
+body[data-theme="dark"] {
+  --background-color: #222;
+  --gradient-background: rgb(36, 36, 36);
+  --gradient-color: linear-gradient(0deg, rgba(36, 36, 36, 1) 0%, rgba(66, 66, 66, 1) 100%);
+  --foreground-color: #242424;
+  --primary-text-color: #ffffff;
+  --secondary-text-color: hsl(0, 0%, 80%);
+  --tertiary-text-color: hsl(0, 1%, 67%);
+  --toggle-bg: #f0eb9d;
+  --toggle-fg: #ff00dd;
+}
+
+body {
+  background: var(--gradient-background);
+  background: var(--gradient-color);
+  color: var(--primary-text-color);
+}
+
+/* Rest of your CSS remains the same */
 a {
   font-weight: 500;
   color: #646cff;
@@ -25,14 +52,6 @@ a {
 
 a:hover {
   color: #535bf2;
-}
-
-body {
-  margin: 0;
-  display: flex;
-  place-items: center;
-  min-width: 320px;
-  min-height: 100vh;
 }
 
 h1 {
@@ -61,7 +80,7 @@ button:focus-visible {
   outline: 4px auto -webkit-focus-ring-color;
 }
 
-@media (prefers-color-scheme: light) {
+/* @media (prefers-color-scheme: light) {
   :root {
     color: #213547;
     background-color: #ffffff;
@@ -74,4 +93,4 @@ button:focus-visible {
   button {
     background-color: #f9f9f9;
   }
-}
+} */

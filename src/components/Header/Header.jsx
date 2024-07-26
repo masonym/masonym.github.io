@@ -1,8 +1,21 @@
+import { useState, useEffect } from 'react';
+
+import ModeToggle from '../ModeToggle/ModeToggle';
+
 import styles from './Header.module.css'
 
 function Header({ projectsRef }) {
     const scrollToRef = (ref) => {
         ref.current.scrollIntoView({ behavior: 'smooth' });
+    };
+    const [isDarkMode, setIsDarkMode] = useState(true); // Start with dark mode by default
+
+    useEffect(() => {
+        document.body.setAttribute('data-theme', isDarkMode ? 'dark' : 'light');
+    }, [isDarkMode]);
+
+    const handleThemeToggle = () => {
+        setIsDarkMode(prevMode => !prevMode);
     };
 
     return (
@@ -14,8 +27,11 @@ function Header({ projectsRef }) {
                         <h3>Software Developer</h3>
                     </ul>
                     <ul>
-                        <li style={{fontSize: '1.25em', borderLeft: '1px solid white ', paddingLeft: "10px"}}><a href="#" onClick={(e) => { e.preventDefault(); scrollToRef(projectsRef); }}>Projects</a></li>
+                        <li style={{ fontSize: '1.25em', borderLeft: '1px solid white ', paddingLeft: "10px" }}><a href="#" onClick={(e) => { e.preventDefault(); scrollToRef(projectsRef); }}>Projects</a></li>
                     </ul>
+                </div>
+                <div>
+                    <ModeToggle isDarkMode={isDarkMode} onToggle={handleThemeToggle} />
                 </div>
                 <ul className={styles.navItems}>
                     <li><a href="">Resume</a></li>
@@ -24,7 +40,7 @@ function Header({ projectsRef }) {
                     <li><a href="mailto:nosamleitch@gmail.com" target='_blank'>Contact</a></li>
                 </ul>
             </nav>
-            <hr style={{marginTop: 0, marginBottom: "50px"}}></hr>
+            <hr style={{ marginTop: 0, marginBottom: "50px" }}></hr>
         </header>
     );
 }

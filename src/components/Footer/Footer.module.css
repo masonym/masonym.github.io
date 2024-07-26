@@ -16,9 +16,10 @@
 .socialLogos {
     width: 3em;
     height: auto;
+    fill: var(--tertiary-text-color)
 }
 
 .footerText {
     font-size: 1.5em;
-    color: #757575
+    color: var(--tertiary-text-color)
 }

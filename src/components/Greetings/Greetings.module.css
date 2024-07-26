@@ -1,7 +1,7 @@
 .greetingsText {
     font-size: 3.2em;
     line-height: 1.1;
-    color: hsla(0, 0%, 100%, 0.555);
+    color: var(--secondary-text-color);
     overflow: visible;
     white-space: nowrap;
 }
