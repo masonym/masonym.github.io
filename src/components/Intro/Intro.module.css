@@ -17,6 +17,7 @@
     text-align: left;
     font-size: 1.25em;
     font-weight: lighter;
+    margin-right: 35%;
 }
 
 .greetingAndPortrait {
@@ -30,5 +31,6 @@
 .portrait {
     width: 16em;
     border-radius: 50%;
-    margin-top: 1em;
+    margin-top: 4em;
+    margin-right: 4em;
 }
