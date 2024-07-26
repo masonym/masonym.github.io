@@ -5,6 +5,7 @@ import Greetings from './components/Greetings/Greetings.jsx';
 import Intro from './components/Intro/Intro.jsx';
 import Projects from './components/Projects/Projects.jsx';
 import Footer from './components/Footer/Footer.jsx';
+import Contact from './components/Contact/Contact.jsx';
 import NotFound from './components/NotFound/NotFound.jsx';
 
 function App() {
@@ -26,7 +27,7 @@ function App() {
             <div ref={projectsRef}>
               <Projects/>
             </div>
-            
+            <Contact/>
             <Footer />
           </>
         }/>

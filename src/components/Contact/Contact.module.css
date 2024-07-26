@@ -1,0 +1,17 @@
+.contactParagraph {
+    text-align: left;
+    font-size: 1.25em;
+    font-weight: lighter;
+    margin-right: 35%;
+    width: 40%;
+}
+
+.contactHeader {
+    margin-top: 2em;
+    margin-bottom: 0;
+    text-align: left;
+}
+
+.contactWrapper {
+    margin-left: 2em;
+}
