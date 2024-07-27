@@ -1,12 +1,14 @@
 import { useState, useEffect } from 'react';
 import { Document, Page, pdfjs } from 'react-pdf';
 import 'react-pdf/dist/esm/Page/AnnotationLayer.css';
-import Pdf from '../../assets/Leitch, Mason.pdf';
+import Pdf from '/Leitch, Mason.pdf';
 import ModeToggle from '../ModeToggle/ModeToggle';
 import styles from './Header.module.css';
 
-// Set up the PDF.js worker
-pdfjs.GlobalWorkerOptions.workerSrc = `//cdnjs.cloudflare.com/ajax/libs/pdf.js/${pdfjs.version}/pdf.worker.min.js`;
+pdfjs.GlobalWorkerOptions.workerSrc = new URL(
+    'pdfjs-dist/build/pdf.worker.min.mjs',
+    import.meta.url,
+  ).toString();
 
 function Header({ projectsRef }) {
     const scrollToRef = (ref) => {
@@ -55,11 +57,11 @@ function Header({ projectsRef }) {
             <hr style={{ marginTop: 0, marginBottom: "50px" }}></hr>
             
             {showPdf && (
-                <div className="fixed inset-0 z-50 flex items-center justify-center bg-black bg-opacity-50">
-                    <div className="bg-white p-4 rounded-lg max-w-3xl max-h-[90vh] overflow-auto">
+                <div className={styles.pdfOverlay}>
+                    <div className={styles.pdfPopup}>
                         <button 
                             onClick={() => setShowPdf(false)}
-                            className="mb-4 px-4 py-2 bg-red-500 text-white rounded hover:bg-red-600"
+                            className={styles.closeButton}
                         >
                             Close
                         </button>
@@ -67,7 +69,7 @@ function Header({ projectsRef }) {
                             file={Pdf}
                             options={{ workerSrc: "/pdf.worker.js" }}
                         >
-                            <Page pageNumber={1} />
+                            <Page pageNumber={1} renderTextLayer={false} scale={1.5}/>
                         </Document>
                     </div>
                 </div>
