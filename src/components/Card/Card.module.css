@@ -1,0 +1,101 @@
+/* Card.module.css */
+
+.card {
+    border: 1px solid hsl(0, 0%, 33%);
+    border-radius: 16px;
+    padding: 2.5% 32px;
+    box-shadow: 2px 5px 5px hsla(0, 0%, 100%, 0.1);
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    flex: 1;
+    margin: 10px;
+    background-color: var(--background-color);
+    color: var(--primary-text-color);
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.image {
+    max-width: 100%;
+    max-height: 100%;
+    width: auto;
+    height: auto;
+    object-fit: contain;
+    border-radius: 16px;
+}
+
+.imageContainer {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 100%;
+    height: 250px;
+    overflow: hidden;
+    margin-bottom: 15px;
+    position: relative;
+    border-radius: 16px;
+}
+
+.link {
+    text-decoration: underline;
+}
+
+/* .projectTitle {
+    text-shadow: 1px 2px 2px var(--tertiary-text-color);
+} */
+
+.gitHubLogo {
+    width: 32px;
+    height: auto;
+    fill: var(--primary-text-color);
+}
+
+.gitHubSection {
+    height: 32px;
+}
+
+.card:hover {
+    transform: scale(1.05); /* Make the card grow by 5% */
+    box-shadow: 4px 8px 8px var(--tertiary-text-color)
+}
+
+@media (prefers-color-scheme: light) {
+    /* fill this */
+}
+
+.imageOverlay {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.7);
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    opacity: 0;
+    transition: opacity 0.3s ease;
+    border-radius: 16px;
+}
+
+.imageContainer:hover .image {
+    filter: brightness(50%);
+}
+
+.imageContainer:hover .imageOverlay {
+    opacity: 1;
+}
+
+.overlayText {
+    color: white;
+    font-size: 1.2rem;
+    margin-bottom: 10px;
+}
+
+.overlayIcon {
+    width: 32px;
+    height: 32px;
+    fill: white;
+}

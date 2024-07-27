@@ -1,0 +1,25 @@
+.footer {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.socialLinks {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
+    gap: 20px
+}
+
+.socialLogos {
+    width: 3em;
+    height: auto;
+    fill: var(--tertiary-text-color)
+}
+
+.footerText {
+    font-size: 1.5em;
+    color: var(--tertiary-text-color)
+}

@@ -1,0 +1,96 @@
+body {
+  margin: 0;
+  display: flex;
+  place-items: center;
+  min-width: 320px;
+  min-height: 100vh;
+  font-family: Inter, system-ui, Avenir, Helvetica, Arial, sans-serif;
+  line-height: 1.5;
+  font-weight: 400;
+  font-synthesis: none;
+  text-rendering: optimizeLegibility;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+body[data-theme="light"] {
+  --background-color: #f6f6f6;
+  --gradient-background: rgb(195,195,195);
+  --gradient-color: linear-gradient(0deg, rgba(195,195,195,1) 0%, rgba(233,233,233,1) 100%);
+  --foreground-color: #bdbdbd;
+  --primary-text-color: #213547;
+  --secondary-text-color: hsla(0, 0%, 29%, 0.5);
+  --tertiary-text-color: hsla(0, 0%, 29%, 0.8);
+  --toggle-bg: #f0eb9d;
+  --toggle-fg: #ff00dd;
+}
+
+body[data-theme="dark"] {
+  --background-color: #222;
+  --gradient-background: rgb(36, 36, 36);
+  --gradient-color: linear-gradient(0deg, rgba(36, 36, 36, 1) 0%, rgba(66, 66, 66, 1) 100%);
+  --foreground-color: #242424;
+  --primary-text-color: #ffffff;
+  --secondary-text-color: hsl(0, 0%, 80%);
+  --tertiary-text-color: hsl(0, 1%, 67%);
+  --toggle-bg: #f0eb9d;
+  --toggle-fg: #ff00dd;
+}
+
+body {
+  background: var(--gradient-background);
+  background: var(--gradient-color);
+  color: var(--primary-text-color);
+}
+
+/* Rest of your CSS remains the same */
+a {
+  font-weight: 500;
+  color: #646cff;
+  text-decoration: inherit;
+}
+
+a:hover {
+  color: #535bf2;
+}
+
+h1 {
+  font-size: 3.2em;
+  line-height: 1.1;
+}
+
+button {
+  border-radius: 8px;
+  border: 1px solid transparent;
+  padding: 0.6em 1.2em;
+  font-size: 1em;
+  font-weight: 500;
+  font-family: inherit;
+  background-color: #1a1a1a;
+  cursor: pointer;
+  transition: border-color 0.25s;
+}
+
+button:hover {
+  border-color: #646cff;
+}
+
+button:focus,
+button:focus-visible {
+  outline: 4px auto -webkit-focus-ring-color;
+}
+
+/* @media (prefers-color-scheme: light) {
+  :root {
+    color: #213547;
+    background-color: #ffffff;
+  }
+
+  a:hover {
+    color: #747bff;
+  }
+
+  button {
+    background-color: #f9f9f9;
+  }
+} */

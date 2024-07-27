@@ -1,0 +1,36 @@
+:root {
+    max-width: calc(1280px * 1.25);
+    margin: 0 auto;
+    padding: 2rem;
+    text-align: center;
+}
+
+.introWrapper {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    padding-left: 5%;
+    padding-right: 5%;
+}
+
+.introParagraph {
+    text-align: left;
+    font-size: 1.25em;
+    font-weight: lighter;
+    margin-right: 35%;
+}
+
+.greetingAndPortrait {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: space-between;
+    width: 100%;
+}
+
+.portrait {
+    width: 16em;
+    border-radius: 50%;
+    margin-top: 4em;
+    margin-right: 4em;
+}
