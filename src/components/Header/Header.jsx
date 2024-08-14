@@ -1,7 +1,7 @@
 import { useState, useEffect } from 'react';
 import { Document, Page, pdfjs } from 'react-pdf';
 import 'react-pdf/dist/esm/Page/AnnotationLayer.css';
-import Pdf from '/Leitch, Mason.pdf';
+import Pdf from '../../assets/Leitch, Mason.pdf';
 import ModeToggle from '../ModeToggle/ModeToggle';
 import styles from './Header.module.css';
 
