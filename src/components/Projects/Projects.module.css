@@ -1,20 +1,32 @@
 .cardContainer {
-    display: flex;
-    flex-wrap: wrap;
-    gap: 20px;
-    justify-content: space-around;
-    padding: 20px;
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 20px;
+  justify-content: space-around;
+  padding: 20px;
+}
+
+@media (width <= 1000px) {
+  .cardContainer {
+    grid-template-columns: repeat(2, 1fr);
   }
-  
-  .cardContainerWrapper {
-    display: flex;
-    flex-wrap: wrap;
-    width: 100%;
-    gap: 20px;
-    justify-content: center;
+}
+
+@media (width <= 650px) {
+  .cardContainer {
+    grid-template-columns: repeat(1, 1fr);
   }
-  
-  ul {
-    list-style: none;
-    padding-left: 0;
-  }
+}
+
+.cardContainerWrapper {
+  display: flex;
+  flex-wrap: wrap;
+  width: 100%;
+  gap: 20px;
+  justify-content: center;
+}
+
+ul {
+  list-style: none;
+  padding-left: 0;
+}
