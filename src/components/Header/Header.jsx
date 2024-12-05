@@ -50,7 +50,7 @@ function Header({ projectsRef }) {
                 </div>
                 <ul className={styles.navItems}>
                     <li><Link to="/" className={styles.link}>Home</Link></li>
-                    <li><Link to="/advent" className={styles.link}>Advent Calendar</Link></li>
+                    {/* <li><Link to="/advent" className={styles.link}>Advent Calendar</Link></li> */}
                     <li><a href="#" onClick={handleResumeClick}>Resume</a></li>
                     <li><a href="https://www.linkedin.com/in/mason-leitch-78b90a206/" target='_blank'>LinkedIn</a></li>
                     <li><a href="https://github.com/masonym" target='_blank'>GitHub</a></li>
