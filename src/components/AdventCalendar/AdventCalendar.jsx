@@ -50,7 +50,7 @@ function AdventCalendar() {
     const loadAsciiArt = async (day) => {
         if (!asciiArt[day]) {
             try {
-                const response = await fetch(`/src/components/AdventCalendar/ascii/day${day}.txt`);
+                const response = await fetch(`/ascii/day${day}.txt`);
                 if (!response.ok) throw new Error('Failed to load ASCII art');
                 const text = await response.text();
                 setAsciiArt(prev => ({ ...prev, [day]: text }));
