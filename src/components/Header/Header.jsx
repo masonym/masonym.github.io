@@ -1,5 +1,6 @@
 import { useState, useEffect } from 'react';
 import { Document, Page, pdfjs } from 'react-pdf';
+import { Link } from 'react-router-dom';
 import 'react-pdf/dist/esm/Page/AnnotationLayer.css';
 import Pdf from '../../assets/Leitch, Mason.pdf';
 import ModeToggle from '../ModeToggle/ModeToggle';
@@ -48,6 +49,8 @@ function Header({ projectsRef }) {
                     <ModeToggle isDarkMode={isDarkMode} onToggle={handleThemeToggle} />
                 </div>
                 <ul className={styles.navItems}>
+                    <li><Link to="/" className={styles.link}>Home</Link></li>
+                    <li><Link to="/advent" className={styles.link}>Advent Calendar</Link></li>
                     <li><a href="#" onClick={handleResumeClick}>Resume</a></li>
                     <li><a href="https://www.linkedin.com/in/mason-leitch-78b90a206/" target='_blank'>LinkedIn</a></li>
                     <li><a href="https://github.com/masonym" target='_blank'>GitHub</a></li>
@@ -69,7 +72,7 @@ function Header({ projectsRef }) {
                             file={Pdf}
                             options={{ workerSrc: "/pdf.worker.js" }}
                         >
-                            <Page pageNumber={1} renderTextLayer={false} scale={1.5}/>
+                            <Page pageNumber={1} renderTextLayer={false} scale={1.5}/>;
                         </Document>
                     </div>
                 </div>

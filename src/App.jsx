@@ -7,6 +7,7 @@ import Projects from './components/Projects/Projects.jsx';
 import Footer from './components/Footer/Footer.jsx';
 import Contact from './components/Contact/Contact.jsx';
 import NotFound from './components/NotFound/NotFound.jsx';
+import AdventCalendar from './components/AdventCalendar/AdventCalendar.jsx';
 
 import styles from './App.module.css'
 
@@ -18,6 +19,11 @@ function App() {
   return (
     <BrowserRouter>
       <Routes>
+        <Route path="/advent" element={
+          <div style={{ margin: 0, padding: 0, overflow: 'hidden', height: '100vh', background: '#1a1a1a' }}>
+            <AdventCalendar />
+          </div>
+        } />
         <Route path="/" element={
           <div className={styles.app}>
             <Header homeRef={homeRef} projectsRef={projectsRef} />
