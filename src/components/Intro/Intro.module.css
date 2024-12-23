@@ -1,7 +1,4 @@
 :root {
-    max-width: calc(1280px * 1.25);
-    margin: 0 auto;
-    padding: 2rem;
     text-align: center;
 }
 
@@ -11,6 +8,8 @@
     align-items: flex-start;
     padding-left: 5%;
     padding-right: 5%;
+    max-width: 1440px;
+    margin: 0 auto;
 }
 
 .introParagraph {

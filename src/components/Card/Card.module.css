@@ -1,48 +1,139 @@
 /* Card.module.css */
 
 .card {
-    border: 1px solid hsl(0, 0%, 33%);
-    border-radius: 16px;
-    padding: 2.5% 32px;
-    box-shadow: 2px 5px 5px hsla(0, 0%, 100%, 0.1);
+    background: var(--card-background);
+    border-radius: 12px;
+    overflow: hidden;
+    transition: all 0.3s ease;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    height: 100%;
     display: flex;
     flex-direction: column;
-    justify-content: space-between;
-    flex: 1;
-    margin: 10px;
-    background-color: var(--background-color);
-    color: var(--primary-text-color);
-    transition: transform 0.3s ease, box-shadow 0.3s ease;
 }
 
-.image {
-    max-width: 100%;
-    max-height: 100%;
-    width: auto;
-    height: auto;
-    object-fit: contain;
-    border-radius: 16px;
+.card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 8px 15px rgba(0, 0, 0, 0.2);
 }
 
 .imageContainer {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    width: 100%;
-    height: 250px;
-    overflow: hidden;
-    margin-bottom: 15px;
     position: relative;
-    border-radius: 16px;
+    overflow: hidden;
+    aspect-ratio: 16/9;
+}
+
+.image {
+    width: 100%;
+    height: 100%;
+    object-fit: contain;
+    transition: transform 0.5s ease;
+}
+
+.card:hover .image {
+    transform: scale(1.05);
+}
+
+.imageOverlay {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(0, 0, 0, 0.7);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    opacity: 0;
+    transition: opacity 0.3s ease;
+}
+
+.card:hover .imageOverlay {
+    opacity: 1;
+}
+
+.overlayLink {
+    color: white;
+    text-decoration: none;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 0.5rem;
+}
+
+.overlayText {
+    font-size: 1.2rem;
+    font-weight: 500;
+}
+
+.overlayIcon {
+    width: 24px;
+    height: 24px;
+}
+
+.content {
+    padding: 1.5rem;
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+}
+
+.title {
+    font-size: 1.5rem;
+    color: var(--primary-text-color);
+    margin-bottom: 1rem;
+}
+
+.description {
+    color: var(--secondary-text-color);
+    font-size: 0.95rem;
+    line-height: 1.5;
+    margin-bottom: 1.5rem;
+    flex: 1;
+}
+
+.technologies {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.5rem;
+    margin-bottom: 1.5rem;
+}
+
+.techTag {
+    background: var(--tag-background);
+    color: var(--tag-text);
+    padding: 0.3rem 0.8rem;
+    border-radius: 15px;
+    font-size: 0.8rem;
+    transition: all 0.3s ease;
+}
+
+.techTag:hover {
+    background: var(--primary-color);
+    color: var(--background-color);
+    transform: translateY(-2px);
+}
+
+.links {
+    display: flex;
+    gap: 1rem;
+    margin-top: auto;
 }
 
 .link {
-    text-decoration: underline;
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+    color: var(--secondary-text-color);
+    text-decoration: none;
+    transition: all 0.3s ease;
+    padding: 0.5rem;
+    border-radius: 8px;
 }
 
-/* .projectTitle {
-    text-shadow: 1px 2px 2px var(--tertiary-text-color);
-} */
+.link:hover {
+    color: var(--primary-color);
+    background: var(--hover-background);
+}
 
 .gitHubLogo {
     width: 32px;
@@ -54,48 +145,16 @@
     height: 32px;
 }
 
-.card:hover {
-    transform: scale(1.05); /* Make the card grow by 5% */
-    box-shadow: 4px 8px 8px var(--tertiary-text-color)
-}
+@media (max-width: 768px) {
+    .title {
+        font-size: 1.3rem;
+    }
 
-@media (prefers-color-scheme: light) {
-    /* fill this */
-}
+    .description {
+        font-size: 0.9rem;
+    }
 
-.imageOverlay {
-    position: absolute;
-    top: 50%;
-    left: 50%;
-    transform: translate(-50%, -50%);
-    width: 100%;
-    height: 100%;
-    background-color: rgba(0, 0, 0, 0.7);
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    align-items: center;
-    opacity: 0;
-    transition: opacity 0.3s ease;
-    border-radius: 16px;
-}
-
-.imageContainer:hover .image {
-    filter: brightness(50%);
-}
-
-.imageContainer:hover .imageOverlay {
-    opacity: 1;
-}
-
-.overlayText {
-    color: white;
-    font-size: 1.2rem;
-    margin-bottom: 10px;
-}
-
-.overlayIcon {
-    width: 32px;
-    height: 32px;
-    fill: white;
+    .techTag {
+        font-size: 0.75rem;
+    }
 }

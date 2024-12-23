@@ -3,8 +3,9 @@ import styles from './Card.module.css';
 import { SiGithub } from 'react-icons/si';
 import { ExternalLink } from 'lucide-react';
 
-function Card(props) {
+function Card({ imageSource, name, description, projectLink, gitHubLink, technologies }) {
   const [dimensions, setDimensions] = useState({ width: 0, height: 0 });
+  const [isHovered, setIsHovered] = useState(false);
   const imgRef = useRef(null);
 
   useEffect(() => {
@@ -23,7 +24,6 @@ function Card(props) {
       imgRef.current.addEventListener('load', updateDimensions);
     }
 
-    // Cleanup
     return () => {
       if (imgRef.current) {
         imgRef.current.removeEventListener('load', updateDimensions);
@@ -32,32 +32,70 @@ function Card(props) {
   }, []);
 
   return (
-    <div className={styles.card}>
+    <div 
+      className={`${styles.card} ${isHovered ? styles.hovered : ''}`}
+      onMouseEnter={() => setIsHovered(true)}
+      onMouseLeave={() => setIsHovered(false)}
+    >
       <div className={styles.imageContainer}>
         <img 
           ref={imgRef}
-          src={props.imageSource} 
+          src={imageSource} 
           className={styles.image} 
-          alt={props.name} 
+          alt={name} 
+          loading="lazy"
         />
-        <a 
-          href={props.projectLink} 
-          target="_blank" 
-          rel="noopener noreferrer"
+        <div 
           className={styles.imageOverlay}
           style={{ width: dimensions.width, height: dimensions.height }}
         >
-          <span className={styles.overlayText}>Click me to view website</span>
-          <ExternalLink className={styles.overlayIcon} />
-        </a>
+          <a 
+            href={projectLink} 
+            target="_blank" 
+            rel="noopener noreferrer"
+            className={styles.overlayLink}
+          >
+            <span className={styles.overlayText}>View Project</span>
+            <ExternalLink className={styles.overlayIcon} />
+          </a>
+        </div>
       </div>
-      <h2 className={styles.projectTitle}>{props.name}</h2>
-      <p>{props.description}</p>
-      <span className={styles.gitHubSection}>
-        <a href={props.gitHubLink} target="_blank" rel="noopener noreferrer" className={styles.link}>
-          {props.gitHubLink && <SiGithub className={styles.gitHubLogo} />}
-        </a>
-      </span>
+
+      <div className={styles.content}>
+        <h3 className={styles.title}>{name}</h3>
+        <p className={styles.description}>{description}</p>
+        
+        <div className={styles.technologies}>
+          {technologies.map((tech, index) => (
+            <span key={index} className={styles.techTag}>
+              {tech}
+            </span>
+          ))}
+        </div>
+
+        <div className={styles.links}>
+          <a 
+            href={projectLink} 
+            target="_blank" 
+            rel="noopener noreferrer"
+            className={styles.link}
+          >
+            <ExternalLink size={20} />
+            <span>Live Demo</span>
+          </a>
+          {gitHubLink && (
+            <a 
+              href={gitHubLink} 
+              target="_blank" 
+              rel="noopener noreferrer"
+              className={styles.link}
+            >
+              <SiGithub size={20} />
+              <span>Source Code</span>
+            </a>
+          )}
+        </div>
+      </div>
     </div>
   );
 }

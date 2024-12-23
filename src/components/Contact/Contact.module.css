@@ -1,17 +1,190 @@
-.contactParagraph {
-    text-align: left;
-    font-size: 1.25em;
-    font-weight: lighter;
-    margin-right: 35%;
-    width: 40%;
+.contactSection {
+    padding: 4rem 2rem;
+    background: var(--background-color);
+    min-height: 60vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.contactContent {
+    max-width: 1200px;
+    width: 100%;
 }
 
 .contactHeader {
-    margin-top: 2em;
-    margin-bottom: 0;
-    text-align: left;
+    text-align: center;
+    margin-bottom: 3rem;
 }
 
-.contactWrapper {
-    margin-left: 2em;
+.title {
+    font-size: 2.5rem;
+    color: var(--primary-text-color);
+    margin-bottom: 1rem;
+    position: relative;
+    display: inline-block;
+}
+
+.title::after {
+    content: '';
+    position: absolute;
+    bottom: -10px;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 60px;
+    height: 3px;
+    background: var(--primary-color);
+    border-radius: 2px;
+}
+
+.subtitle {
+    color: var(--secondary-text-color);
+    font-size: 1.1rem;
+    line-height: 1.6;
+    max-width: 600px;
+    margin: 0 auto;
+}
+
+.contactCards {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 2rem;
+    margin-bottom: 3rem;
+}
+
+.contactCard {
+    background: var(--card-background);
+    border-radius: 12px;
+    padding: 2rem;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    display: flex;
+    flex-direction: column;
+}
+
+.contactCard h3 {
+    color: var(--primary-text-color);
+    font-size: 1.5rem;
+    margin-bottom: 1rem;
+}
+
+.contactCard p {
+    color: var(--secondary-text-color);
+    line-height: 1.6;
+    margin-bottom: 1.5rem;
+    flex-grow: 1;
+}
+
+.emailContainer {
+    margin-top: auto;
+}
+
+.emailButton {
+    width: 100%;
+    padding: 1rem;
+    background: var(--primary-color);
+    color: white;
+    border: none;
+    border-radius: 8px;
+    font-size: 1rem;
+    cursor: pointer;
+    position: relative;
+    transition: all 0.3s ease;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 0.5rem;
+}
+
+.emailButton:hover {
+    background: var(--primary-color-dark);
+    transform: translateY(-2px);
+}
+
+.copyHint {
+    position: absolute;
+    top: -30px;
+    left: 50%;
+    transform: translateX(-50%);
+    background: var(--background-color);
+    color: var(--primary-text-color);
+    padding: 0.5rem 1rem;
+    border-radius: 4px;
+    font-size: 0.8rem;
+    opacity: 0;
+    transition: opacity 0.3s ease;
+}
+
+.emailButton:hover .copyHint {
+    opacity: 1;
+}
+
+.socialLinks {
+    display: flex;
+    gap: 1rem;
+    justify-content: center;
+    margin-top: auto;
+}
+
+.socialLink {
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+    color: var(--secondary-text-color);
+    text-decoration: none;
+    padding: 0.75rem 1rem;
+    border-radius: 8px;
+    background: var(--background-color);
+    transition: all 0.3s ease;
+}
+
+.socialLink span {
+    font-size: 0.9rem;
+}
+
+.contactFooter {
+    text-align: center;
+    color: var(--secondary-text-color);
+    margin-top: 2rem;
+}
+
+.contactFooter p {
+    margin: 0.5rem 0;
+    font-size: 0.9rem;
+}
+
+@media (max-width: 768px) {
+    .contactCards {
+        grid-template-columns: 1fr;
+    }
+
+    .title {
+        font-size: 2rem;
+    }
+
+    .subtitle {
+        font-size: 1rem;
+    }
+
+    .contactCard {
+        padding: 1.5rem;
+    }
+
+    .contactCard h3 {
+        font-size: 1.3rem;
+    }
+
+    .socialLink span {
+        display: none;
+    }
+}
+
+@media (max-width: 480px) {
+    .contactSection {
+        padding: 3rem 1rem;
+    }
+
+    .emailButton {
+        font-size: 0.9rem;
+        padding: 0.75rem;
+    }
 }

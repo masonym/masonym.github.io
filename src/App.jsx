@@ -8,6 +8,7 @@ import Footer from './components/Footer/Footer.jsx';
 import Contact from './components/Contact/Contact.jsx';
 import NotFound from './components/NotFound/NotFound.jsx';
 import AdventCalendar from './components/AdventCalendar/AdventCalendar.jsx';
+import Skills from './components/Skills/Skills.jsx';
 
 import styles from './App.module.css'
 
@@ -32,6 +33,7 @@ function App() {
             <div ref={homeRef}>
               <Greetings />
               <Intro />
+              <Skills />
             </div>
       
             <div ref={projectsRef}>

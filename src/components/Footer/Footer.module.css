@@ -1,16 +1,142 @@
 .footer {
+    background: var(--footer-background, var(--card-background));
+    padding: 4rem 2rem 2rem;
+    color: var(--primary-text-color);
+}
+
+.footerContent {
+    max-width: 1200px;
+    margin: 0 auto;
+    display: grid;
+    grid-template-columns: 2fr 1fr 1fr;
+    gap: 3rem;
+    margin-bottom: 3rem;
+}
+
+.footerSection {
     display: flex;
-    flex-direction: row;
-    justify-content: space-between;
-    align-items: center;
+    flex-direction: column;
+}
+
+.footerTitle {
+    font-size: 1.2rem;
+    margin-bottom: 1.5rem;
+    position: relative;
+    display: inline-block;
+}
+
+.footerTitle::after {
+    content: '';
+    position: absolute;
+    bottom: -8px;
+    left: 0;
+    width: 30px;
+    height: 2px;
+    background: var(--primary-color);
+    border-radius: 2px;
+}
+
+.footerDescription {
+    color: var(--secondary-text-color);
+    line-height: 1.6;
+    margin-bottom: 1.5rem;
 }
 
 .socialLinks {
     display: flex;
-    flex-direction: row;
+    gap: 1rem;
+}
+
+.socialLink {
+    color: var(--secondary-text-color);
+    transition: all 0.3s ease;
+    padding: 0.5rem;
+    border-radius: 8px;
+    background: var(--background-color);
+}
+
+.quickLinks {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+}
+
+.quickLink {
+    color: var(--secondary-text-color);
+    text-decoration: none;
+    line-height: 2;
+    transition: color 0.3s ease;
+    background: none;
+    border: none;
+    padding: 0;
+    font: inherit;
+    cursor: pointer;
+    outline: inherit;
+    text-align: center;
+    width: 100%;
+}
+
+.quickLink:hover {
+    color: var(--hover-color);
+}
+
+.techStack {
+    display: flex;
+    flex-direction: column;
+    gap: 0.75rem;
+    align-items: center;
+}
+
+.techItem {
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+    color: var(--secondary-text-color);
+    font-size: 0.9rem;
+    text-align: center;
+}
+
+.techItem svg {
+    color: var(--primary-color);
+}
+
+.footerBottom {
+    max-width: 1200px;
+    margin: 0 auto;
+}
+
+.footerLine {
+    height: 1px;
+    background: var(--border-color);
+    margin-bottom: 2rem;
+}
+
+.footerCopyright {
+    display: flex;
     justify-content: space-between;
     align-items: center;
-    gap: 20px
+    color: var(--secondary-text-color);
+    font-size: 0.9rem;
+}
+
+.builtWith {
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+}
+
+.reactIcon {
+    color: #61DAFB;
+    animation: spin 10s linear infinite;
+}
+
+@keyframes spin {
+    from {
+        transform: rotate(0deg);
+    }
+    to {
+        transform: rotate(360deg);
+    }
 }
 
 .socialLogos {
@@ -22,4 +148,44 @@
 .footerText {
     font-size: 1.5em;
     color: var(--tertiary-text-color)
+}
+
+@media (max-width: 968px) {
+    .footerContent {
+        grid-template-columns: 1fr 1fr;
+    }
+
+    .footerSection:first-child {
+        grid-column: 1 / -1;
+    }
+}
+
+@media (max-width: 576px) {
+    .footer {
+        padding: 3rem 1rem 1.5rem;
+    }
+
+    .footerContent {
+        grid-template-columns: 1fr;
+        gap: 2rem;
+    }
+
+    .footerCopyright {
+        flex-direction: column;
+        gap: 0.5rem;
+        text-align: center;
+    }
+
+    .footerSection:first-child {
+        text-align: center;
+    }
+
+    .footerTitle::after {
+        left: 50%;
+        transform: translateX(-50%);
+    }
+
+    .socialLinks {
+        justify-content: center;
+    }
 }

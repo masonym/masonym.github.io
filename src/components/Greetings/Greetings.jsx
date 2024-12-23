@@ -3,25 +3,25 @@ import styles from './Greetings.module.css';
 
 const greetings = {
     French: "Bonjour",
-    Japanese: "こんにちは", // Konnichiwa
+    Japanese: "こんにちは",
     Spanish: "Hola",
-    Korean: "안녕하세요", // Annyeonghaseyo
+    Korean: "안녕하세요",
     Italian: "Ciao",
-    Persian: "سلام", // Salaam
+    Persian: "سلام",
     Portuguese: "Olá",
-    Chinese: "你好", // Nǐ hǎo
+    Chinese: "你好",
     Swahili: "Habari",
-    Arabic: "مرحبا", // Marhaban
-    Russian: "Здравствуйте", // Zdravstvuyte
-    Hindi: "नमस्ते", // Namaste
+    Arabic: "مرحبا",
+    Russian: "Здравствуйте",
+    Hindi: "नमस्ते",
     Swedish: "Hej",
-    Bengali: "হ্যালো", // Hyālō
-    Greek: "Γεια σας", // Geia sas
+    Bengali: "হ্যালো",
+    Greek: "Γεια σας",
     Turkish: "Merhaba",
     Polish: "Cześć",
     Vietnamese: "Xin chào",
-    Thai: "สวัสดี", // Sawatdi
-    Hebrew: "שלום", // Shalom
+    Thai: "สวัสดี",
+    Hebrew: "שלום",
     Finnish: "Hei",
     Czech: "Ahoj",
     German: "Hallo",
@@ -31,74 +31,134 @@ const greetings = {
     Tagalog: "Kamusta",
 };
 
+const roles = [
+    "Software Engineer",
+    "Full Stack Developer",
+    "Problem Solver",
+    "Tech Enthusiast"
+];
+
 const Greetings = () => {
     const [visibleGreetings, setVisibleGreetings] = useState([]);
-    const [positions, setPositions] = useState({});
     const containerRef = useRef(null);
+    const [currentRole, setCurrentRole] = useState(0);
+    const [text, setText] = useState('');
+    const [isDeleting, setIsDeleting] = useState(false);
+    const typingSpeed = 100;
+    const deletingSpeed = 50;
+    const pauseTime = 2000;
 
+    // Typing effect
     useEffect(() => {
+        const currentText = roles[currentRole];
+        let timer;
+
+        if (!isDeleting && text.length === currentText.length) {
+            // Wait before starting to delete
+            timer = setTimeout(() => setIsDeleting(true), pauseTime);
+        } else if (isDeleting && text.length === 0) {
+            // When done deleting, move to next role
+            setIsDeleting(false);
+            setCurrentRole((prev) => (prev + 1) % roles.length);
+        } else {
+            // Handle typing/deleting
+            timer = setTimeout(() => {
+                setText(prev => {
+                    if (!isDeleting) {
+                        return currentText.slice(0, prev.length + 1);
+                    }
+                    return currentText.slice(0, prev.length - 1);
+                });
+            }, isDeleting ? deletingSpeed : typingSpeed);
+        }
+
+        return () => clearTimeout(timer);
+    }, [text, isDeleting, currentRole]);
+
+    // Floating greetings effect
+    useEffect(() => {
+        if (!containerRef.current) return;
+
         const container = containerRef.current;
         const greetingsList = Object.entries(greetings).filter(([lang]) => lang !== 'English');
-        let index = 0;
+        let timeouts = [];
 
-        const interval = setInterval(() => {
-            if (index < greetingsList.length) {
-                const [lang, greeting] = greetingsList[index];
-                const containerWidth = container.offsetWidth;
-                const containerHeight = container.offsetHeight;
+        const addGreeting = (index) => {
+            if (index >= greetingsList.length) return;
 
-                setVisibleGreetings(prev => [...prev, { lang, greeting }]);
-                setPositions(prev => ({
-                    ...prev,
-                    [lang]: {
-                        left: `${Math.random() * (containerWidth - 200)}px`,
-                        top: `${Math.random() * (containerHeight - 100)}px`,                        
-                    }
-                }));
-                index++;
-            } else {
-                clearInterval(interval);
+            const [lang, greeting] = greetingsList[index];
+            const containerWidth = container.offsetWidth;
+            const containerHeight = container.offsetHeight;
+            const padding = 100; // Increased padding from edges
+
+            // Calculate position relative to center
+            const centerX = containerWidth / 2;
+            const centerY = containerHeight / 2;
+            
+            // Generate random angle and distance from center
+            const angle = Math.random() * Math.PI * 2;
+            const minDistance = 200; // Minimum distance from center
+            const maxDistance = Math.min(centerX, centerY) - padding;
+            const distance = minDistance + Math.random() * (maxDistance - minDistance);
+            
+            // Calculate final position
+            const randomX = centerX + Math.cos(angle) * distance;
+            const randomY = centerY + Math.sin(angle) * distance;
+
+            const newGreeting = {
+                id: `${lang}-${Date.now()}`,
+                lang,
+                greeting,
+                style: {
+                    left: `${randomX}px`,
+                    top: `${randomY}px`,
+                    opacity: Math.random() * 0.3 + 0.7
+                }
+            };
+
+            setVisibleGreetings(prev => [...prev, newGreeting]);
+
+            // Schedule next greeting
+            if (index < greetingsList.length - 1) {
+                const timeout = setTimeout(() => {
+                    addGreeting(index + 1);
+                }, Math.random() * 300 + 200); // Slightly longer delays
+                timeouts.push(timeout);
             }
-        }, 500);
+        };
 
-        return () => clearInterval(interval);
+        // Start adding greetings
+        addGreeting(0);
+
+        // Cleanup function
+        return () => {
+            timeouts.forEach(timeout => clearTimeout(timeout));
+            setVisibleGreetings([]);
+        };
     }, []);
 
     return (
-        <div ref={containerRef} style={{ width: '100%', height: '100vh', overflow: 'visible', position: 'relative', top: "20%" }}>
-            <div style={{
-                position: 'absolute',
-                left: '50%',
-                top: '50%',
-                transform: 'translate(-50%, -50%)',
-                fontSize: '3.6em',
-                fontWeight: 'bold'
-            }}>
-                Hello!
-            </div>
-            {visibleGreetings.map(({ lang, greeting }) => (
-                <div
-                    key={lang}
-                    style={{
-                        position: 'absolute',
-                        left: positions[lang]?.left,
-                        top: positions[lang]?.top,
-                        transform: 'translate(-50%, -50%)',
-                        padding: '10px',
-                        opacity: 0,
-                        animation: 'fadeIn 3s forwards',
-                    }}
-                >
-                    <div className={styles.greetingsText}>{greeting}!</div>
+        <section className={styles.heroSection}>
+            <div className={styles.content}>
+                <h1 className={styles.mainTitle}>
+                    Hi, I'm Mason<span className={styles.cursor}>|</span>
+                </h1>
+                <div className={styles.roleText}>
+                    {text}<span className={styles.cursor}>|</span>
                 </div>
-            ))}
-            <style>{`
-                @keyframes fadeIn {
-                    from { opacity: 0; }
-                    to { opacity: 1; }
-                }
-            `}</style>
-        </div>
+                <div ref={containerRef} className={styles.greetingsContainer}>
+                    {visibleGreetings.map((item) => (
+                        <div
+                            key={item.id}
+                            className={styles.greetingItem}
+                            style={item.style}
+                        >
+                            {item.greeting}
+                        </div>
+                    ))}
+                </div>
+            </div>
+        </section>
     );
 };
 
