@@ -1,7 +1,7 @@
 import React from 'react';
 import styles from './Skills.module.css';
 import { motion } from 'framer-motion';
-import { FaReact, FaNodeJs, FaPython, FaGitAlt, FaDatabase } from 'react-icons/fa';
+import { FaReact, FaNodeJs, FaPython, FaGitAlt, FaDatabase, FaPhp, FaAws, FaTools } from 'react-icons/fa';
 import { SiJavascript, SiTypescript, SiTailwindcss, SiMongodb, SiPostgresql } from 'react-icons/si';
 
 const Skills = () => {
@@ -9,25 +9,95 @@ const Skills = () => {
         {
             title: "Frontend Development",
             items: [
-                { name: "React", icon: <FaReact />, details: ["Component-based architecture", "State management (Redux, Context)", "React Router", "Custom Hooks"] },
-                { name: "JavaScript/TypeScript", icon: <SiJavascript />, details: ["ES6+", "Async/Await", "DOM Manipulation", "Type Safety"] },
-                { name: "CSS & Styling", icon: <SiTailwindcss />, details: ["Tailwind CSS", "CSS Modules", "Responsive Design", "Animations"] }
+                {
+                    name: "React & Next.js",
+                    icon: <FaReact />,
+                    details: [
+                        "Next.js 13+ App Router",
+                        "Advanced React Patterns & Hooks",
+                        "Context Providers & State Management",
+                        "Performance Optimization & SSR"
+                    ]
+                },
+                {
+                    name: "TypeScript",
+                    icon: <SiTypescript />,
+                    details: [
+                        "Centralized TypeScript Interfaces",
+                        "Advanced Type Systems",
+                        "Custom Hooks Development",
+                        "Type-Safe API Integration"
+                    ]
+                },
+                {
+                    name: "UI & Styling",
+                    icon: <SiTailwindcss />,
+                    details: [
+                        "Tailwind CSS Architecture",
+                        "Responsive Design Patterns",
+                        "Accessible Component Design",
+                        "Dynamic UI Components"
+                    ]
+                }
             ]
         },
         {
             title: "Backend Development",
             items: [
-                { name: "Node.js", icon: <FaNodeJs />, details: ["Express.js", "REST APIs", "Authentication", "Middleware"] },
-                { name: "Python", icon: <FaPython />, details: ["FastAPI", "Django", "Data Processing", "Automation"] },
-                { name: "Databases", icon: <FaDatabase />, details: ["MongoDB", "PostgreSQL", "Database Design", "ORM"] }
+                {
+                    name: "Python Development",
+                    icon: <FaPython />,
+                    details: [
+                        "Django Web Applications",
+                        "AutoCAD Integration & DXF",
+                        "ETL Pipeline Development",
+                        "Structural Engineering Tools"
+                    ]
+                },
+                {
+                    name: "PHP",
+                    icon: <FaPhp />,
+                    details: [
+                        "Laravel Framework",
+                        "Object-Oriented Design",
+                        "Technical Tool Development"
+                    ]
+                },
+                {
+                    name: "Data Engineering",
+                    icon: <FaDatabase />,
+                    details: [
+                        "AWS DynamoDB Design",
+                        "Data Mining Solutions",
+                        "Automated Analysis Tools",
+                        "Large Dataset Processing"
+                    ]
+                }
             ]
         },
         {
-            title: "Development Tools",
+            title: "Cloud & Infrastructure",
             items: [
-                { name: "Version Control", icon: <FaGitAlt />, details: ["Git", "GitHub", "Branching Strategies", "CI/CD"] },
-                { name: "Database Tools", icon: <SiMongodb />, details: ["MongoDB Atlas", "pgAdmin", "Data Modeling", "Optimization"] },
-                { name: "Development", icon: <SiTypescript />, details: ["VS Code", "Testing", "Documentation", "Debugging"] }
+                {
+                    name: "AWS Services",
+                    icon: <FaAws />,
+                    details: [
+                        "DynamoDB & S3 Integration",
+                        "Lambda Functions",
+                        "CloudFront CDN",
+                        "API Gateway"
+                    ]
+                },
+                {
+                    name: "Development Tools",
+                    icon: <FaTools />,
+                    details: [
+                        "Git Version Control",
+                        "AutoCAD Integration",
+                        "Technical Documentation",
+                        "CI/CD Workflows"
+                    ]
+                }
             ]
         }
     ];
