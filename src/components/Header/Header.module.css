@@ -57,22 +57,47 @@
     max-width: 90%;
     max-height: 90%;
     overflow: auto;
+    position: relative;
 }
 
-.closeButton {
+.buttonContainer {
+    display: flex;
+    gap: 10px;
     position: absolute;
     top: 10px;
     right: 10px;
-    padding: 5px 10px;
+    z-index: 1;
+}
+
+.closeButton {
+    padding: 8px 16px;
     background-color: #f44336;
     color: white;
     border: none;
     border-radius: 3px;
     cursor: pointer;
+    font-size: 14px;
 }
 
 .closeButton:hover {
     background-color: #d32f2f;
+}
+
+.downloadButton {
+    padding: 8px 16px;
+    background-color: #4CAF50;
+    color: white;
+    border: none;
+    border-radius: 3px;
+    cursor: pointer;
+    text-decoration: none;
+    font-size: 14px;
+}
+
+.downloadButton:hover {
+    background-color: #388E3C;
+    text-decoration: none;
+    color: white;
 }
 
 @media (max-width: 768px) {

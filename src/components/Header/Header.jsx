@@ -9,7 +9,7 @@ import styles from './Header.module.css';
 pdfjs.GlobalWorkerOptions.workerSrc = new URL(
     'pdfjs-dist/build/pdf.worker.min.mjs',
     import.meta.url,
-  ).toString();
+).toString();
 
 function Header({ projectsRef }) {
     const scrollToRef = (ref) => {
@@ -58,21 +58,30 @@ function Header({ projectsRef }) {
                 </ul>
             </nav>
             {/* <hr style={{ marginTop: 0, marginBottom: "50px" }}></hr> */}
-            
+
             {showPdf && (
                 <div className={styles.pdfOverlay}>
                     <div className={styles.pdfPopup}>
-                        <button 
-                            onClick={() => setShowPdf(false)}
-                            className={styles.closeButton}
-                        >
-                            Close
-                        </button>
+                        <div className={styles.buttonContainer}>
+                            <a
+                                href={Pdf}
+                                download="Mason_Leitch_Resume.pdf"
+                                className={styles.downloadButton}
+                            >
+                                Download
+                            </a>
+                            <button
+                                onClick={() => setShowPdf(false)}
+                                className={styles.closeButton}
+                            >
+                                Close
+                            </button>
+                        </div>
                         <Document
                             file={Pdf}
                             options={{ workerSrc: "/pdf.worker.js" }}
                         >
-                            <Page pageNumber={1} renderTextLayer={false} scale={1.5}/>;
+                            <Page pageNumber={1} renderTextLayer={false} scale={1.5} />;
                         </Document>
                     </div>
                 </div>
