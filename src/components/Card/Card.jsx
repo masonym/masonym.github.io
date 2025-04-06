@@ -37,7 +37,7 @@ function Card({ imageSource, name, description, projectLink, gitHubLink, technol
       </div>
 
       <div className={styles.content}>
-        <h2 className={styles.client}>Client: {client}</h2>
+        {client && <h2 className={styles.client}>Client: {client}</h2>}
         <h3 className={styles.title}>{name}</h3>
         <p className={styles.description}>{description}</p>
 
