@@ -3,32 +3,9 @@ import styles from './Card.module.css';
 import { SiGithub } from 'react-icons/si';
 import { ExternalLink } from 'lucide-react';
 
-function Card({ imageSource, name, description, projectLink, gitHubLink, technologies }) {
+function Card({ imageSource, name, description, projectLink, gitHubLink, technologies, client }) {
   const [isHovered, setIsHovered] = useState(false);
   const imgRef = useRef(null);
-
-  useEffect(() => {
-    const updateDimensions = () => {
-      if (imgRef.current) {
-        setDimensions({
-          width: imgRef.current.width,
-          height: imgRef.current.height
-        });
-      }
-    };
-
-    if (imgRef.current && imgRef.current.complete) {
-      updateDimensions();
-    } else if (imgRef.current) {
-      imgRef.current.addEventListener('load', updateDimensions);
-    }
-
-    return () => {
-      if (imgRef.current) {
-        imgRef.current.removeEventListener('load', updateDimensions);
-      }
-    };
-  }, []);
 
   return (
     <div
@@ -60,6 +37,7 @@ function Card({ imageSource, name, description, projectLink, gitHubLink, technol
       </div>
 
       <div className={styles.content}>
+        <h2 className={styles.client}>Client: {client}</h2>
         <h3 className={styles.title}>{name}</h3>
         <p className={styles.description}>{description}</p>
 

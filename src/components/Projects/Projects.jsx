@@ -14,13 +14,15 @@ const clientProjects = [
     {
         id: 1,
         imageSource: projectImageADA,
-        name: "Military Contracting Event Management Website",
-        description: "A responsive event management website using Next.js and React, utilizing dynamic routing and centralized data files to generate SEO-friendly pages on-demand.",
+        name: "American Defense Alliance Website",
+        description: "A full-stack web application powering the digital presence of the American Defense Alliance—a U.S. startup supporting defense contractors, government agencies, and national security stakeholders through high-impact industry events.",
         projectLink: "https://americandefensealliance.org/",
         gitHubLink: "https://github.com/masonym/ada-website",
-        technologies: ["Next.js", "React", "SEO", "Dynamic Routing"],
-        category: "Website"
+        technologies: ["Next.js", "React", "SEO", "Dynamic Routing", "Tailwind CSS", "Node.js", "TypeScript",],
+        category: "Website",
+        client: "American Defense Alliance",
     },
+    // TODO: Update this once migration is done
     {
         id: 2,
         imageSource: projectImagePhace,
@@ -29,7 +31,8 @@ const clientProjects = [
         projectLink: "https://www.phace.ca/",
         gitHubLink: "",
         technologies: ["Wix", "Velo API", "JavaScript", "UI/UX Design"],
-        category: "Website"
+        category: "Website",
+        client: "Phace Medical Aesthetics",
     }
 ]
 
@@ -66,7 +69,7 @@ function Projects() {
 
     return (
         <div id="projects" className={styles.projectsSection}>
-            <ProjectHeader headerText="Client Projects" />
+            <ProjectHeader headerText="Freelance Projects" />
 
             <div className={`${styles.cardContainerWrapper}`}>
                 <div className={`${styles.cardContainer} ${getEqualSplitClass(clientProjects.length)}`}>

@@ -77,6 +77,12 @@
     flex-direction: column;
 }
 
+.client {
+    font-size: 0.9rem;
+    color: var(--secondary-text-color);
+    margin-bottom: 0.5rem;
+}
+
 .title {
     font-size: 1.5rem;
     color: var(--primary-text-color);
