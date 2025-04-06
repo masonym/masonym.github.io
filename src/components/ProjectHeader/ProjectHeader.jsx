@@ -1,8 +1,8 @@
 import styles from './ProjectHeader.module.css'
 
-function ProjectHeader() {
+function ProjectHeader({ headerText }) {
     return (
-        <h1>Personal Projects</h1>
+        <h1>{headerText}</h1>
     )
 }
 

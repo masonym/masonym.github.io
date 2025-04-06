@@ -10,6 +10,29 @@ import projectImageDotNet from '../../assets/dotnetAPI_sampleImage.png';
 import projectImageMapleTools from '../../assets/maplestory-tools.png';
 import projectImageADA from '../../assets/ada.png';
 
+const clientProjects = [
+    {
+        id: 1,
+        imageSource: projectImageADA,
+        name: "Military Contracting Event Management Website",
+        description: "A responsive event management website using Next.js and React, utilizing dynamic routing and centralized data files to generate SEO-friendly pages on-demand.",
+        projectLink: "https://americandefensealliance.org/",
+        gitHubLink: "https://github.com/masonym/ada-website",
+        technologies: ["Next.js", "React", "SEO", "Dynamic Routing"],
+        category: "Website"
+    },
+    {
+        id: 2,
+        imageSource: projectImagePhace,
+        name: "Chilliwack Med-spa Website",
+        description: "A website built in Wix and customized using the Velo API to create a seamless booking experience for clients.",
+        projectLink: "https://www.phace.ca/",
+        gitHubLink: "",
+        technologies: ["Wix", "Velo API", "JavaScript", "UI/UX Design"],
+        category: "Website"
+    }
+]
+
 const projects = [
     {
         id: 1,
@@ -31,102 +54,35 @@ const projects = [
         technologies: ["React", "Python", "XML", "API Integration"],
         category: "Web App"
     },
-    {
-        id: 3,
-        imageSource: projectImageADA,
-        name: "Military Contracting Event Management Website",
-        description: "A responsive event management website using Next.js and React, utilizing dynamic routing and centralized data files to generate SEO-friendly pages on-demand.",
-        projectLink: "https://americandefensealliance.org/",
-        gitHubLink: "https://github.com/masonym/ada-website",
-        technologies: ["Next.js", "React", "SEO", "Dynamic Routing"],
-        category: "Website"
-    },
-    {
-        id: 4,
-        imageSource: projectImagePhace,
-        name: "Chilliwack Med-spa Website",
-        description: "A website built in Wix and customized using the Velo API to create a seamless booking experience for clients.",
-        projectLink: "https://www.phace.ca/",
-        gitHubLink: "",
-        technologies: ["Wix", "Velo API", "JavaScript", "UI/UX Design"],
-        category: "Website"
-    }
 ];
 
-const allTechnologies = [...new Set(projects.flatMap(project => project.technologies))];
-const categories = [...new Set(projects.map(project => project.category))];
+const getEqualSplitClass = (length) => {
+    if (length === 2) return styles.equalSplit2;
+    if (length === 3) return styles.equalSplit3;
+    return '';
+};
 
 function Projects() {
-    const [selectedTech, setSelectedTech] = useState('All');
-    const [selectedCategory, setSelectedCategory] = useState('All');
-    const [filteredProjects, setFilteredProjects] = useState(projects);
-    const [isLoading, setIsLoading] = useState(true);
-
-    useEffect(() => {
-        setIsLoading(true);
-        const filtered = projects.filter(project => {
-            const techMatch = selectedTech === 'All' || project.technologies.includes(selectedTech);
-            const categoryMatch = selectedCategory === 'All' || project.category === selectedCategory;
-            return techMatch && categoryMatch;
-        });
-        
-        setTimeout(() => {
-            setFilteredProjects(filtered);
-            setIsLoading(false);
-        }, 300);
-    }, [selectedTech, selectedCategory]);
 
     return (
         <div id="projects" className={styles.projectsSection}>
-            <ProjectHeader />
-            
-            {/* <div className={styles.filters}>
-                <div className={styles.filterGroup}>
-                    <h3>Filter by Technology</h3>
-                    <div className={styles.filterButtons}>
-                        <button 
-                            className={`${styles.filterButton} ${selectedTech === 'All' ? styles.active : ''}`}
-                            onClick={() => setSelectedTech('All')}
-                        >
-                            All
-                        </button>
-                        {allTechnologies.map(tech => (
-                            <button
-                                key={tech}
-                                className={`${styles.filterButton} ${selectedTech === tech ? styles.active : ''}`}
-                                onClick={() => setSelectedTech(tech)}
-                            >
-                                {tech}
-                            </button>
-                        ))}
-                    </div>
-                </div>
+            <ProjectHeader headerText="Client Projects" />
 
-                <div className={styles.filterGroup}>
-                    <h3>Filter by Category</h3>
-                    <div className={styles.filterButtons}>
-                        <button 
-                            className={`${styles.filterButton} ${selectedCategory === 'All' ? styles.active : ''}`}
-                            onClick={() => setSelectedCategory('All')}
-                        >
-                            All
-                        </button>
-                        {categories.map(category => (
-                            <button
-                                key={category}
-                                className={`${styles.filterButton} ${selectedCategory === category ? styles.active : ''}`}
-                                onClick={() => setSelectedCategory(category)}
-                            >
-                                {category}
-                            </button>
-                        ))}
-                    </div>
+            <div className={`${styles.cardContainerWrapper}`}>
+                <div className={`${styles.cardContainer} ${getEqualSplitClass(clientProjects.length)}`}>
+                    {clientProjects.map(project => (
+                        <Card
+                            key={project.id}
+                            {...project}
+                        />
+                    ))}
                 </div>
-            </div> */}
+            </div>
+            <ProjectHeader headerText="Personal Projects" />
 
-            <div className={`${styles.cardContainerWrapper} ${isLoading ? styles.loading : ''}`}>
-                <div className={styles.cardContainer}>
-                    {filteredProjects.map(project => (
+            <div className={`${styles.cardContainerWrapper}`}>
+                <div className={`${styles.cardContainer} ${getEqualSplitClass(projects.length)}`}>
+                    {projects.map(project => (
                         <Card
                             key={project.id}
                             {...project}
