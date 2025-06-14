@@ -27,10 +27,10 @@ const clientProjects = [
         id: 2,
         imageSource: projectImagePhace,
         name: "Chilliwack Med-spa Website",
-        description: "A website built in Wix and customized using the Velo API to create a seamless booking experience for clients.",
+        description: "A full-stack e-commerce and appointment booking platform built with Next.js, React, and TypeScript. This application features comprehensive Square API integration for payments, bookings, and inventory management, with robust caching mechanisms to optimize API usage. The system includes a sophisticated appointment scheduling system with real-time availability, custom consent form generation, and an admin dashboard for managing products, services, and bookings.",
         projectLink: "https://www.phace.ca/",
         gitHubLink: "",
-        technologies: ["Wix", "Velo API", "JavaScript", "UI/UX Design"],
+        technologies: ["Next.js", "React", "JavaScript", "TypeScript", "Node.js", "UI/UX Design", "API Integration", "AWS Coral authentication"],
         category: "Website",
         client: "Phace Medical Aesthetics",
     }
