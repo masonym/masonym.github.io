@@ -114,7 +114,7 @@ const BirthMonth = () => {
           </div>
         ) : tasks.length === 0 ? (
           <div className={styles.emptyState}>
-            <p>No festivities added yet! Add some fun activities to celebrate Mahta's birth month!</p>
+            <p>No festivities added yet!</p>
           </div>
         ) : (
           tasks.map(task => (
