@@ -15,14 +15,13 @@ const clientProjects = [
         id: 1,
         imageSource: projectImageADA,
         name: "American Defense Alliance Website",
-        description: "A full-stack web application powering the digital presence of the American Defense Alliance—a U.S. startup supporting defense contractors, government agencies, and national security stakeholders through high-impact industry events.",
+        description: "A full-stack web application powering the digital presence of the American Defense Alliance—a U.S. startup supporting defense contractors, government agencies, and national security stakeholders through high-impact industry events. This project also features a full-stack registration system for events, integrated with Stripe for payment processing, AWS DynamoDB for storage and Resend for confirmation emails, with the help of Stripe webhooks.",
         projectLink: "https://americandefensealliance.org/",
         gitHubLink: "https://github.com/masonym/ada-website",
-        technologies: ["Next.js", "React", "SEO", "Dynamic Routing", "Tailwind CSS", "Node.js", "TypeScript",],
+        technologies: ["Next.js", "React", "SEO", "Dynamic Routing", "Tailwind CSS", "Node.js", "TypeScript", "AWS", "Stripe", "Resend"],
         category: "Website",
         client: "American Defense Alliance",
     },
-    // TODO: Update this once migration is done
     {
         id: 2,
         imageSource: projectImagePhace,
