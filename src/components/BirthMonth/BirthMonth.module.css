@@ -109,7 +109,7 @@
   justify-content: space-between;
   padding: 15px;
   border-radius: 10px;
-  background: var(--card-background-color, #f8f8f8);
+  background: var(--card-background);
   box-shadow: 0 2px 8px rgba(0, 0, 0, 0.05);
   transition: all 0.3s ease;
 }
@@ -276,13 +276,7 @@
   }
 }
 
-/* Dark mode adjustments */
-@media (prefers-color-scheme: dark) {
-  .container {
-    box-shadow: 0 8px 24px rgba(0, 0, 0, 0.2);
-  }
-  
-  .taskItem {
-    background: var(--card-background-color, #2a2a2a);
-  }
+/* Dark mode box shadow adjustments */
+body[data-theme="dark"] .container {
+  box-shadow: 0 8px 24px rgba(0, 0, 0, 0.2);
 }
