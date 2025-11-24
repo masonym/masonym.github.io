@@ -1,0 +1,113 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <link rel="stylesheet" href="style.css">
+    </head>
+    <body>
+
+        <div class="title-container">
+            <h1>SelfDesign Status Update Form Generator</h1>
+        </div>
+
+        <div class="form-container">
+            <form id="status-form">
+
+                <h4>Title</h4>
+                <input type="text" id="status-title" required>
+
+                <h4>Status</h4>
+                <div class="radio-choices">
+                    <input type="radio" id="primary" name="status-status" value="primary" required>
+                    <label for="primary">Operational</label><br>
+                    <input type="radio" id="warning" name="status-status" value="warning">
+                    <label for="warning">Degraded Service</label><br>
+                    <input type="radio" id="danger" name="status-status" value="danger">
+                    <label for="danger">Outage</label><br>
+                    <input type="radio" id="info" name="status-status" value="info">
+                    <label for="info">Info</label><br>
+                    <input type="radio" id="maintenance" name="status-status" value="maintenance">
+                    <label for="maintenance">Maintenance</label><br>
+                </div>
+                
+                <h4>Summary</h4>
+                <div class="template-controls">
+                    <label for="summary-template">Summary template</label>
+                    <select id="summary-template">
+                        <option value="">— Select a template (optional) —</option>
+                        <option value="operational_ok">All systems operational</option>
+                        <option value="investigating_incident">Investigating service disruption</option>
+                        <option value="degraded_performance">Degraded performance</option>
+                        <option value="scheduled_maintenance">Scheduled maintenance</option>
+                        <option value="maintenance_completed">Maintenance completed</option>
+                        <option value="incident_resolved">Incident resolved</option>
+                    </select>
+                </div>
+                <input type="text" id="status-summary" required>
+
+                <h4>Description</h4>
+                <div class="template-controls">
+                    <label for="description-template">Description template</label>
+                    <select id="description-template">
+                        <option value="">— Select a template (optional) —</option>
+                        <option value="operational_ok">All systems operational</option>
+                        <option value="investigating_incident">Investigating service disruption</option>
+                        <option value="degraded_performance">Degraded performance</option>
+                        <option value="scheduled_maintenance">Scheduled maintenance</option>
+                        <option value="maintenance_completed">Maintenance completed</option>
+                        <option value="incident_resolved">Incident resolved</option>
+                    </select>
+                </div>
+                <textarea id="status-description" required></textarea>
+
+                <h4>Details Dropdown</h4>
+                <div>
+                    <div class="radio-choices">
+                        <input type="radio" id="details-open" name="status-details" value="open">
+                        <label for="details-open">Open</label><br>
+                        <input type="radio" id="details-closed" name="status-details" value="closed">
+                        <label for="details-closed">Closed</label><br>
+                </div>
+
+                <h4>Affected Monitors</h4>
+                <input type="text" id="monitor-search" placeholder="Search monitors...">
+                <div id="monitor-selection">
+                    <!-- Monitor checkboxes will be populated by JavaScript -->
+                </div>
+
+                <h4>Include Affected Services?</h4>
+                <div>
+                    <div class="radio-choices">
+                        <input type="radio" id="yes" name="status-affected-services" value="yes">
+                        <label for="yes">Yes</label><br>
+                        <input type="radio" id="no" name="status-affected-services" value="no">
+                        <label for="no">No</label><br>
+                </div>
+
+                <h4>Maintenance Start Time</h4>
+                <input type="datetime-local" id="status-maintenance-date-time">
+
+                <h4>Maintenance Expected Duration</h4>
+                <input type="number" id="status-maintenance-duration">
+            
+
+                <div class="submit-container">
+                    <button type="submit">Submit</button>
+                </div>
+
+            </form>
+        </div>
+
+        <div id="result-container" style="display: none;">
+            <textarea id="result"></textarea>
+        </div>
+
+        <div id="status-pages-container" style="display: none;">
+            <h3>Relevant Status Pages</h3>
+            <div id="status-pages-list">
+                <!-- Status page links will be populated here -->
+            </div>
+        </div>
+        <script src="formscript.js"></script>
+    </body>
+</html>
+
